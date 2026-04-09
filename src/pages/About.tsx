@@ -1,74 +1,112 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, Heart, Shield, Target } from 'lucide-react';
-import { ACADEMY_NAME } from '../constants';
+import { Target, Heart, Award, Sparkles, BookCheck, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="pt-24 pb-20">
-      {/* Header */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero */}
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent uppercase bg-accent/10 rounded-full"
+          >
+            Since 2014
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-6xl font-bold tracking-tight text-primary mb-6"
+            transition={{ delay: 0.1 }}
+            className="text-5xl lg:text-7xl font-extrabold tracking-tight text-primary mb-8"
           >
-            About the Academy
+            Our Teaching <span className="text-accent">Philosophy</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-gray-500 max-w-2xl mx-auto"
+            transition={{ delay: 0.2 }}
+            className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed"
           >
-            Dedicated to preserving and promoting the Hindi language through excellence in education and personalized mentorship.
+            Founded on the belief that language learning should be natural, personalized, and stress-free. We focus on building deep roots in Hindi through simple, relatable methods.
           </motion.p>
+        </div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 bg-white animate-reveal">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { 
+                icon: <Target className="text-accent" />, 
+                title: "Individual Focus", 
+                desc: "Every student is unique. We don't use a 'one-size-fits-all' approach. Instead, we adapt our pace to match the student's learning style." 
+              },
+              { 
+                icon: <Heart className="text-accent" />, 
+                title: "Patient Mentorship", 
+                desc: "Learning a new language can be daunting. Our teacher is exceptionally patient, ensuring students feel comfortable asking questions." 
+              },
+              { 
+                icon: <Sparkles className="text-accent" />, 
+                title: "Simple Methods", 
+                desc: "We break down complex grammar rules into simple, day-to-day examples that students can easily remember and apply." 
+              }
+            ].map((value, i) => (
+              <div key={i} className="text-center group">
+                <div className="w-20 h-20 bg-accent/5 rounded-[2.5rem] flex items-center justify-center mx-auto mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                  {value.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
+                <p className="text-gray-500 leading-relaxed">{value.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-20 bg-white">
+      {/* Philosophy Details */}
+      <section className="py-32 bg-background animate-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-20 items-center">
-            <div className="lg:w-1/2">
+          <div className="flex flex-col lg:flex-row items-center gap-20">
+            <div className="lg:w-1/2 order-2 lg:order-1">
               <div className="relative">
-                <div className="aspect-[4/5] rounded-3xl bg-accent/5 overflow-hidden shadow-2xl relative">
-                  <img
-                    src="https://images.pexels.com/photos/5212320/pexels-photo-5212320.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Professional Hindi Tutor"
-                    className="w-full h-full object-cover relative z-10"
+                <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-3xl bg-gray-200">
+                   <img 
+                    src="https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                    alt="Tutor Teaching" 
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-accent/10 flex items-center justify-center">
-                    <span className="text-accent/30 font-bold uppercase tracking-widest text-xs">Instructor Portrait</span>
-                  </div>
                 </div>
-                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-accent rounded-3xl -z-10 hidden lg:block"></div>
+                {/* Floating Stat */}
+                <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-2xl animate-bounce-slow">
+                  <div className="text-4xl font-black text-accent mb-1">10+</div>
+                  <div className="text-[10px] uppercase font-bold tracking-widest text-gray-400">Years of Experience</div>
+                </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">Meet Your Tutor</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                At {ACADEMY_NAME}, we believe that learning a language is more than just memorizing words; it's about connecting with a culture and building confidence. With over a decade of experience in teaching Hindi to students of all ages, our approach is rooted in patience and clarity.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Whether you are a student struggling with school syllabus, a professional looking to improve fluency, or someone interested in the formal certifications of the Dakshina Bharat Hindi Prachar Sabha, we provide the right guidance tailored to your needs.
+            
+            <div className="lg:w-1/2 order-1 lg:order-2">
+              <span className="text-accent font-bold uppercase tracking-widest text-sm mb-4 block">How we Teach</span>
+              <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">Focus on Individual Attention</h2>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                At Anu Kumar Academy, we prioritize quality over quantity. That's why we don't have large batches. Each class is designed for a single student or a very small group to ensure that the teacher can address every doubt instantly.
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-6">
                 {[
-                  { icon: <Heart className="text-accent" />, title: "Student-Centric", desc: "We adapt to your learning style." },
-                  { icon: <Shield className="text-accent" />, title: "Trustworthy", desc: "Proven track record of success." },
-                  { icon: <Target className="text-accent" />, title: "Goal-Oriented", desc: "Focused on results and fluency." },
-                  { icon: <CheckCircle2 className="text-accent" />, title: "Expertise", desc: "Deep knowledge of Hindi literature." }
+                  "Step-by-step progress tracking",
+                  "Relatable daily-life examples",
+                  "Emphasis on correct pronunciation",
+                  "Regular feedback sessions with parents"
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-3">
-                    <div className="shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                      {item.icon}
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                      <CheckCircle2 size={16} />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                      <p className="text-gray-400 text-xs">{item.desc}</p>
-                    </div>
+                    <span className="font-bold text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -77,45 +115,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Teaching Approach */}
-      <section className="py-24 bg-background">
+      {/* Trust Badges */}
+      <section className="py-24 bg-white animate-reveal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Teaching Approach</h2>
-            <p className="text-gray-500">How we make learning Hindi effective and enjoyable.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                title: "Personalized Learning",
-                desc: "Every student is different. We create custom lesson plans that focus on your strengths and work on your weaknesses.",
-                image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800"
-              },
-              {
-                title: "Interactive Sessions",
-                desc: "Our classes are not lectures. We encourage active participation, conversation, and real-world application of the language.",
-                image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
-              },
-              {
-                title: "Continuous Feedback",
-                desc: "Regular assessments and constructive feedback help track progress and ensure that learning goals are being met.",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden border border-gray-100 card-shadow group">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
+          <div className="bg-primary rounded-[4rem] p-16 lg:p-24 flex flex-col md:flex-row items-center justify-between gap-12 text-white overflow-hidden relative">
+            <div className="relative z-10 max-w-xl">
+              <h2 className="text-3xl lg:text-5xl font-bold mb-6 italic">"Our mission is to make every student fall in love with Hindi."</h2>
+              <p className="text-white/60 font-semibold tracking-widest uppercase">Anu Kumar, Founder</p>
+            </div>
+            <div className="relative z-10 flex gap-12">
+              <div className="text-center">
+                <ShieldCheck size={48} className="mx-auto mb-4 text-accent" />
+                <h4 className="font-bold text-sm">Verified Methods</h4>
               </div>
-            ))}
+              <div className="text-center">
+                <Award size={48} className="mx-auto mb-4 text-accent" />
+                <h4 className="font-bold text-sm">Expert Guidance</h4>
+              </div>
+              <div className="text-center">
+                <BookCheck size={48} className="mx-auto mb-4 text-accent" />
+                <h4 className="font-bold text-sm">Premium Materials</h4>
+              </div>
+            </div>
+            {/* Design accents */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 blur-3xl rounded-full"></div>
           </div>
         </div>
       </section>

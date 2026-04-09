@@ -37,9 +37,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center group">
             <span className="text-xl font-bold tracking-tight text-primary">
-              {ACADEMY_NAME}
+              <span className="text-accent underline decoration-accent/30 decoration-4 underline-offset-4 group-hover:decoration-accent transition-all">{ACADEMY_NAME}</span>
             </span>
           </Link>
 
@@ -49,16 +49,19 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
+                className={`text-sm font-semibold transition-all hover:text-accent relative group ${
                   location.pathname === link.path ? 'text-accent' : 'text-primary/70'
                 }`}
               >
                 {link.name}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${
+                  location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
               </Link>
             ))}
             <button
               onClick={openEnquiry}
-              className="bg-accent text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-all shadow-lg shadow-accent/20"
+              className="bg-accent text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-accent/90 transition-all shadow-lg shadow-accent/20 active:scale-95"
             >
               Enquire Now
             </button>

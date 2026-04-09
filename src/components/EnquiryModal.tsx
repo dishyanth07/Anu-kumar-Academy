@@ -32,7 +32,7 @@ const EnquiryModal = ({ isOpen, onClose }: EnquiryModalProps) => {
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <div>
                 <h3 className="text-xl font-bold text-primary">Enquiry Form</h3>
-                <p className="text-sm text-gray-500">Fill your details and we'll get back to you soon.</p>
+                <p className="text-sm text-gray-500 font-medium text-accent">We will contact you within 24 hours 😊</p>
               </div>
               <div className="flex items-center gap-2">
                 <a
