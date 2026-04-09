@@ -36,7 +36,7 @@ const Courses = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl lg:text-7xl font-extrabold tracking-tight text-primary mb-8"
           >
-            Detailed <span className="text-accent">Course</span> Catalog
+            <span className="text-accent">Detailed</span> Course Catalog
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
