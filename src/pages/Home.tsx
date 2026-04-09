@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, MessageCircle, CheckCircle2, Star, BookOpen, GraduationCap, Users } from 'lucide-react';
 import { COURSES, TESTIMONIALS, WHATSAPP_LINK } from '../constants';
+import { useEnquiry } from '../context/EnquiryContext';
 
 const Home = () => {
+  const { openEnquiry } = useEnquiry();
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -40,12 +42,12 @@ const Home = () => {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Link
-                to="/enquiry"
+              <button
+                onClick={openEnquiry}
                 className="w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-full font-bold hover:bg-accent/90 transition-all shadow-xl shadow-accent/20 flex items-center justify-center gap-2"
               >
                 Enquire Now <ArrowRight size={18} />
-              </Link>
+              </button>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
@@ -205,12 +207,12 @@ const Home = () => {
               Join Anu Kumar Academy and experience a new way of learning Hindi that is fun, effective, and personalized.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/enquiry"
+              <button
+                onClick={openEnquiry}
                 className="w-full sm:w-auto bg-accent text-white px-10 py-4 rounded-full font-bold hover:bg-accent/90 transition-all shadow-xl shadow-accent/20"
               >
                 Get Started Now
-              </Link>
+              </button>
               <Link
                 to="/contact"
                 className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all"

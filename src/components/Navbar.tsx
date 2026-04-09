@@ -3,11 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { ACADEMY_NAME } from '../constants';
 import { motion, AnimatePresence } from 'motion/react';
+import { useEnquiry } from '../context/EnquiryContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { openEnquiry } = useEnquiry();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,12 +56,12 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-              to="/enquiry"
+            <button
+              onClick={openEnquiry}
               className="bg-accent text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-all shadow-lg shadow-accent/20"
             >
               Enquire Now
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,13 +99,15 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 px-3">
-                <Link
-                  to="/enquiry"
-                  onClick={() => setIsOpen(false)}
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    openEnquiry();
+                  }}
                   className="block w-full text-center bg-accent text-white px-5 py-3 rounded-xl text-base font-semibold"
                 >
                   Enquire Now
-                </Link>
+                </button>
               </div>
             </div>
           </motion.div>

@@ -2,8 +2,10 @@ import { motion } from 'motion/react';
 import { CheckCircle2, BookOpen, MessageCircle, GraduationCap, ArrowRight } from 'lucide-react';
 import { COURSES } from '../constants';
 import { Link } from 'react-router-dom';
+import { useEnquiry } from '../context/EnquiryContext';
 
 const Courses = () => {
+  const { openEnquiry } = useEnquiry();
   const icons = {
     BookOpen: <BookOpen className="text-accent" size={32} />,
     MessageCircle: <MessageCircle className="text-accent" size={32} />,
@@ -55,12 +57,12 @@ const Courses = () => {
                       </div>
                     ))}
                   </div>
-                  <Link
-                    to="/enquiry"
+                  <button
+                    onClick={openEnquiry}
                     className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/10"
                   >
                     Enroll in this Course <ArrowRight size={18} />
-                  </Link>
+                  </button>
                 </div>
                 <div className="lg:w-1/2">
                   <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl bg-gray-100">

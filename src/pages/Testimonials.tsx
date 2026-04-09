@@ -1,8 +1,10 @@
 import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../constants';
+import { useEnquiry } from '../context/EnquiryContext';
 
 const Testimonials = () => {
+  const { openEnquiry } = useEnquiry();
   return (
     <div className="pt-24 pb-20">
       {/* Header */}
@@ -98,12 +100,12 @@ const Testimonials = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to write your own success story?</h2>
           <p className="text-gray-500 mb-10">Join hundreds of satisfied students and parents today.</p>
-          <a
-            href="/enquiry"
+          <button
+            onClick={openEnquiry}
             className="inline-block bg-accent text-white px-10 py-4 rounded-full font-bold hover:bg-accent/90 transition-all shadow-xl shadow-accent/20"
           >
             Start Your Journey
-          </a>
+          </button>
         </div>
       </section>
     </div>

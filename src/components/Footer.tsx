@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ACADEMY_NAME, PHONE_NUMBER, EMAIL } from '../constants';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { useEnquiry } from '../context/EnquiryContext';
 
 const Footer = () => {
+  const { openEnquiry } = useEnquiry();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -47,7 +49,7 @@ const Footer = () => {
             <h4 className="text-sm font-bold uppercase tracking-wider text-primary mb-6">Support</h4>
             <ul className="space-y-4">
               <li><Link to="/testimonials" className="text-gray-500 hover:text-accent transition-colors text-sm">Testimonials</Link></li>
-              <li><Link to="/enquiry" className="text-gray-500 hover:text-accent transition-colors text-sm">Enquiry</Link></li>
+              <li><button onClick={openEnquiry} className="text-gray-500 hover:text-accent transition-colors text-sm text-left w-full">Enquiry</button></li>
               <li><Link to="/contact" className="text-gray-500 hover:text-accent transition-colors text-sm">Contact</Link></li>
               <li><a href="#" className="text-gray-500 hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
             </ul>

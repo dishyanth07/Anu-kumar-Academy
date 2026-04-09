@@ -1,7 +1,9 @@
 export const ACADEMY_NAME = "ANU KUMAR ACADEMY";
 export const PHONE_NUMBER = "+91 90947 25434";
 export const WHATSAPP_LINK = `https://wa.me/919094725434`;
-export const EMAIL = "contact@anukumaracademy.com";
+export const EMAIL = "anukumaracademy@gmail.com";
+export const GOOGLE_FORM_URL = "https://forms.gle/ccxANEWjGxxkWTDb7";
+
 
 export const COURSES = [
   {
