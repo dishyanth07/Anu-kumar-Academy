@@ -32,12 +32,15 @@ const About = () => {
           <div className="flex flex-col lg:flex-row gap-20 items-center">
             <div className="lg:w-1/2">
               <div className="relative">
-                <div className="aspect-[4/5] rounded-3xl bg-gray-100 overflow-hidden shadow-2xl">
+                <div className="aspect-[4/5] rounded-3xl bg-accent/5 overflow-hidden shadow-2xl relative">
                   <img
-                    src="https://images.unsplash.com/photo-1517673132405-a56a62b18acc?auto=format&fit=crop&q=80&w=800"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
                     alt="Tutor"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover relative z-10"
                   />
+                  <div className="absolute inset-0 bg-accent/10 flex items-center justify-center">
+                    <span className="text-accent/30 font-bold uppercase tracking-widest text-xs">Instructor Portrait</span>
+                  </div>
                 </div>
                 <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-accent rounded-3xl -z-10 hidden lg:block"></div>
               </div>
