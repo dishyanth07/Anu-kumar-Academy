@@ -34,7 +34,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-[4/5] rounded-3xl bg-gray-100 overflow-hidden shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1544161515-4af6b1d462c2?auto=format&fit=crop&q=80&w=800"
+                    src="https://images.unsplash.com/photo-1517673132405-a56a62b18acc?auto=format&fit=crop&q=80&w=800"
                     alt="Tutor"
                     className="w-full h-full object-cover"
                   />
