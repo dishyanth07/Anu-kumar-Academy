@@ -3,6 +3,8 @@ import { ACADEMY_NAME, PHONE_NUMBER, EMAIL } from '../constants';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import { useEnquiry } from '../context/EnquiryContext';
 
+import logo from '../assets/logo.jpeg';
+
 const Footer = () => {
   const { openEnquiry } = useEnquiry();
   const currentYear = new Date().getFullYear();
@@ -13,8 +15,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="text-xl font-bold text-primary mb-6 block">
-              {ACADEMY_NAME}
+            <Link to="/" className="mb-6 block">
+              <img src={logo} alt={ACADEMY_NAME} className="h-16 w-auto mix-blend-multiply" />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
               Empowering students with the beauty of Hindi language through personalized and effective teaching methods.

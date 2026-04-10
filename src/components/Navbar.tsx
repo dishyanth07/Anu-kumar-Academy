@@ -5,6 +5,8 @@ import { ACADEMY_NAME } from '../constants';
 import { motion, AnimatePresence } from 'motion/react';
 import { useEnquiry } from '../context/EnquiryContext';
 
+import logo from '../assets/logo.jpeg';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -31,16 +33,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
+        scrolled ? 'shadow-sm py-3' : 'py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center group">
-            <span className="text-xl font-bold tracking-tight text-primary">
-              <span className="text-accent underline decoration-accent/30 decoration-4 underline-offset-4 group-hover:decoration-accent transition-all">{ACADEMY_NAME}</span>
-            </span>
+            <img 
+              src={logo} 
+              alt={ACADEMY_NAME} 
+              className={`transition-all duration-300 ${scrolled ? 'h-12' : 'h-16'} w-auto mix-blend-multiply`} 
+            />
           </Link>
 
           {/* Desktop Menu */}
